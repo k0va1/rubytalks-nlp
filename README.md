@@ -8,7 +8,7 @@ API for Natural Language Processing
 
 ## Run
 
-`docker run --name nlp-api -p 5000:5000 rubytalks-nlp-api`
+`docker run --rm --name nlp-api -p 5000:5000 rubytalks-nlp-api`
 
 ## Usage
 
