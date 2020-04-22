@@ -13,4 +13,15 @@ def items():
     response.content_type = 'application/json'
     return doc.to_json()
 
+@route('/people')
+def people():
+    query = request.params.q
+
+    doc = nlp(query)
+
+    people = dict({'people': list(map(lambda p: p.text, filter(lambda e: e.label_ == 'PERSON', doc.ents)))})
+
+    response.content_type = 'application/json'
+    return dumps(people)
+
 run(host='0.0.0.0', port=5000, debug=True)
